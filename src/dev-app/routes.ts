@@ -85,6 +85,11 @@ export const DEV_APP_ROUTES: Routes = [
     loadComponent: () => import('./cdk-menu/cdk-menu-demo').then(m => m.CdkMenuDemo),
   },
   {
+    path: 'cdk-menu-context-with-trigger',
+    loadComponent: () =>
+      import('@angular/components-examples/cdk/menu').then(m => m.CdkMenuContextWithTriggerExample),
+  },
+  {
     path: 'checkbox',
     loadComponent: () => import('./checkbox/checkbox-demo').then(m => m.CheckboxDemo),
   },

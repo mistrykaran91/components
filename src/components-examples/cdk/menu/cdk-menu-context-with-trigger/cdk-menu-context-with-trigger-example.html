@@ -1,0 +1,30 @@
+<div
+  #repro_target
+  class="example-context-area"
+  tabindex="0"
+  [cdkContextMenuTriggerFor]="context_menu"
+  [cdkMenuTriggerFor]="area_menu"
+>
+  <h4>CDK context menu + CDK menu on the same element</h4>
+  <p>Right-click here, then immediately left-click here. Repeat until the page freezes.</p>
+</div>
+
+<button class="example-repro-button" (click)="reproduce()">Reproduce automatically</button>
+
+<ng-template #area_menu>
+  <div class="example-menu" cdkMenu>
+    <div class="example-menu-header">CDK menu</div>
+    <button class="example-menu-item" cdkMenuItem>Cut</button>
+    <button class="example-menu-item" cdkMenuItem>Copy</button>
+    <button class="example-menu-item" cdkMenuItem>Paste</button>
+  </div>
+</ng-template>
+
+<ng-template #context_menu>
+  <div class="example-menu" cdkMenu>
+    <div class="example-menu-header">CDK context menu</div>
+    <button class="example-menu-item" cdkMenuItem>Cut</button>
+    <button class="example-menu-item" cdkMenuItem>Copy</button>
+    <button class="example-menu-item" cdkMenuItem>Paste</button>
+  </div>
+</ng-template>

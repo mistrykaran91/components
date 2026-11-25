@@ -43,7 +43,7 @@ import {takeUntil} from 'rxjs/operators';
 import {CDK_MENU, Menu} from './menu-interface';
 import {PARENT_OR_NEW_MENU_STACK_PROVIDER} from './menu-stack';
 import {MENU_AIM} from './menu-aim';
-import {CdkMenuTriggerBase, MENU_TRIGGER} from './menu-trigger-base';
+import {CdkMenuTriggerBase, MENU_TRIGGER, MenuTracker} from './menu-trigger-base';
 import {eventDispatchesNativeClick} from './event-detection';
 
 /**
@@ -86,6 +86,9 @@ export class CdkMenuTrigger extends CdkMenuTriggerBase implements OnChanges, OnD
   private readonly _injector = inject(Injector);
   private _cleanupMouseenter: () => void;
 
+  /** The app's menu tracking registry */
+  private readonly _menuTracker = inject(MenuTracker);
+
   /** The parent menu this trigger belongs to. */
   private readonly _parentMenu = inject(CDK_MENU, {optional: true});
 
@@ -110,6 +113,9 @@ export class CdkMenuTrigger extends CdkMenuTriggerBase implements OnChanges, OnD
   /** Open the attached menu. */
   open() {
     if (!this.isOpen() && this.menuTemplateRef != null) {
+      if (!this._parentMenu) {
+        this._menuTracker.update(this);
+      }
       this.opened.next();
 
       this.overlayRef =
@@ -121,7 +127,7 @@ export class CdkMenuTrigger extends CdkMenuTriggerBase implements OnChanges, OnD
   }
 
   /** Close the opened menu. */
-  close() {
+  override close() {
     if (this.isOpen()) {
       this.closed.next();
 

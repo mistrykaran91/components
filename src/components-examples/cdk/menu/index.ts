@@ -4,3 +4,4 @@ export {CdkMenuMenubarExample} from './cdk-menu-menubar/cdk-menu-menubar-example
 export {CdkMenuInlineExample} from './cdk-menu-inline/cdk-menu-inline-example';
 export {CdkMenuContextExample} from './cdk-menu-context/cdk-menu-context-example';
 export {CdkMenuNestedContextExample} from './cdk-menu-nested-context/cdk-menu-nested-context-example';
+export {CdkMenuContextWithTriggerExample} from './cdk-menu-context-with-trigger/cdk-menu-context-with-trigger-example';

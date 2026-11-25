@@ -67,6 +67,7 @@ export class DevAppLayout {
     {name: 'CDK Experimental Tree', route: '/cdk-experimental-tree'},
     {name: 'CDK Listbox', route: '/cdk-listbox'},
     {name: 'CDK Menu', route: '/cdk-menu'},
+    {name: 'CDK Menu Context + Trigger', route: '/cdk-menu-context-with-trigger'},
     {name: 'Autocomplete', route: '/autocomplete'},
     {name: 'Badge', route: '/badge'},
     {name: 'Bottom Sheet', route: '/bottom-sheet'},
